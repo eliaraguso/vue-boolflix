@@ -1,13 +1,15 @@
 <template>
-  <h1>Header</h1>
+  <form action="">
+    <input type="search" name="" id="" />
+    <button>Cerca</button>
+  </form>
 </template>
 
 <script>
 export default {
-    name: 'Header'
-}
+  name: "Header",
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

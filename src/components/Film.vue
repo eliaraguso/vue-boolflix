@@ -1,13 +1,14 @@
 <template>
-  <h1>Main</h1>
+  <h1>Film card</h1>
 </template>
 
 <script>
 export default {
-    name: 'Main'
-}
+    name: 'Film',
+
+};
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>
