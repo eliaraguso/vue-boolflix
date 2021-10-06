@@ -1,7 +1,7 @@
 <template>
   <main>
-    <Film v-for="(film, index) in arrayFilms" :key="index" :film="film" />
-    <Film v-for="(film, index) in arraySeries" :key="index" :film="film" />
+    <Film v-for="film in arrayFilms" :key="film.id" :film="film" />
+    <Film v-for="film in arraySeries" :key="film.id" :film="film" />
 
   </main>
 </template>
