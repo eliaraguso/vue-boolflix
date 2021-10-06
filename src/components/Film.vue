@@ -4,6 +4,8 @@
     <li>{{ film.original_title }}</li>
     <li>{{ film.original_language }}</li>
     <li>{{ film.vote_average }}</li>
+    <country-flag :country='film.original_language'/>
+
   </ul>
 </template>
 
