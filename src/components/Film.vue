@@ -9,6 +9,8 @@
 
     <li>Lingua:<country-flag :country="(film.original_language == 'en') ? 'us' : film.original_language"/></li>
     <li>Voto: {{ film.vote_average }}</li>
+    <li>Voto: {{starsQuantity(vote)}}</li>
+
     <li><img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path" alt=""></li>
 
   </ul>
@@ -16,11 +18,20 @@
 
 <script>
 export default {
+  
   name: "Film",
 
   props: {
     film: Object,
   },
+
+  methods: {
+    starsQuantity(vote) {
+      vote = parseInt(this.film.vote_average / 2)
+      return vote
+    }
+  },
+
 };
 </script>
 
