@@ -1,7 +1,9 @@
 <template>
   <form action="">
     <input type="search" v-model="searchInput" />
-    <button type="submit" @click.prevent="$emit('search', searchInput)">Cerca</button>
+    <button type="submit" @click.prevent="$emit('search', searchInput)">
+      Cerca
+    </button>
   </form>
 </template>
 
@@ -9,9 +11,9 @@
 export default {
   name: "Header",
   data() {
-      return {
-          searchInput: ''
-      }
+    return {
+      searchInput: "",
+    };
   },
 };
 </script>

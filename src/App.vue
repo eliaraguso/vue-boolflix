@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @search="searchFilms" />
+    <Header @search="searchFilm" />
     <Films :arrayFilms="arrayFilms" />
   </div>
 </template>
@@ -19,25 +19,24 @@ export default {
   },
   data() {
     return {
-      search: '',
       arrayFilms: [],
     };
   },
 
   methods: {
-    searchFilms(text) {
-      this.search = text;
-      console.log(text);
-      axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: 'f3ccf82f739dd6e779adfa5f91bae60b',
-          query: this.search
-        }
-      })
-       .then( (resp) => {
-        this.arrayFilms = resp.data.results;
-    });
-    }
+    searchFilm(text) {
+      axios
+        .get("https://api.themoviedb.org/3/search/movie", {
+          params: {
+            api_key: "f3ccf82f739dd6e779adfa5f91bae60b",
+            query: text,
+            language: "it-IT",
+          },
+        })
+        .then((resp) => {
+          this.arrayFilms = resp.data.results;
+        });
+    },
   },
 };
 </script>
