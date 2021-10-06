@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="searchFilm" />
-    <Films :arrayFilms="arrayFilms" />
+    <Films :arrayFilms="arrayFilms" :arraySeries="arraySeries" />
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       arrayFilms: [],
+      arraySeries: []
     };
   },
 
@@ -36,8 +37,19 @@ export default {
         .then((resp) => {
           this.arrayFilms = resp.data.results;
         });
-    },
-  },
+        axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: "f3ccf82f739dd6e779adfa5f91bae60b",
+            query: text,
+            language: "it-IT",
+          },
+        })
+        .then((resp) => {
+          this.arraySeries = resp.data.results;
+        });
+    }
+  }
 };
 </script>
 
