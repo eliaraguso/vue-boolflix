@@ -25,9 +25,15 @@ export default {
     film: Object,
   },
 
+  data() {
+    return {
+      vote: Math.ceil(this.film.vote_average / 2),
+    }
+  },
+
   methods: {
     starsQuantity(vote) {
-      vote = Math.ceil(this.film.vote_average / 2)
+      vote = this.vote
       return vote
     }
   },
