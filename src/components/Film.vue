@@ -27,7 +27,7 @@ export default {
 
   methods: {
     starsQuantity(vote) {
-      vote = parseInt(this.film.vote_average / 2)
+      vote = Math.ceil(this.film.vote_average / 2)
       return vote
     }
   },
