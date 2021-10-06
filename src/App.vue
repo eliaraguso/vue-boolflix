@@ -36,6 +36,7 @@ export default {
         })
         .then((resp) => {
           this.arrayFilms = resp.data.results;
+          console.log(this.arrayFilms);
         });
         axios
         .get("https://api.themoviedb.org/3/search/tv", {
@@ -47,6 +48,7 @@ export default {
         })
         .then((resp) => {
           this.arraySeries = resp.data.results;
+          console.log(this.arraySeries);
         });
     }
   }

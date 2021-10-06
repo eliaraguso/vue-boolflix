@@ -4,6 +4,7 @@
     <li>Titolo originale: {{ film.original_title }}{{film.original_name}}</li>
     <li>Lingua:<country-flag :country="(film.original_language == 'en') ? 'us' : film.original_language"/></li>
     <li>Voto: {{ film.vote_average }}</li>
+    <li><img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path" alt=""></li>
 
   </ul>
 </template>
