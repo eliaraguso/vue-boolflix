@@ -27,7 +27,7 @@ export default {
   header {
     display: flex;
     justify-content: space-between;
-    background-color: #141414;
+    background-image: linear-gradient(to bottom, #141414, #171717, #1b1b1b, #1e1e1e, #212121, #262626, #2b2b2b, #303030, #383838, #414141, #4a4a4a, #535353);
     position: fixed;
     width: 100%;
     height: 70px;
