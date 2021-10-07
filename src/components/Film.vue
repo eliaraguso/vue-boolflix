@@ -11,7 +11,9 @@
     <li>Voto: {{ film.vote_average }}</li>
     <li>Voto: {{starsQuantity(vote)}}</li>
 
-    <li><img :src="'https://image.tmdb.org/t/p/w300' + film.poster_path" alt=""></li>
+    <li><img v-if="linkPoster != null" :src="'https://image.tmdb.org/t/p/w300' + linkPoster" alt=""></li>
+    <li><img v-if="linkPoster == null" src="https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg" alt=""></li>
+
 
   </ul>
 </template>
@@ -21,6 +23,7 @@ export default {
   
   name: "Film",
 
+
   props: {
     film: Object,
   },
@@ -28,6 +31,7 @@ export default {
   data() {
     return {
       vote: Math.ceil(this.film.vote_average / 2),
+      linkPoster: this.film.poster_path,
     }
   },
 
