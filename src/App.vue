@@ -20,38 +20,33 @@ export default {
   data() {
     return {
       arrayFilms: [],
-      arraySeries: []
+      arraySeries: [],
     };
   },
 
   methods: {
     searchFilm(text) {
+      const params = {
+        api_key: "f3ccf82f739dd6e779adfa5f91bae60b",
+        query: text,
+        language: "it-IT",
+      };
       axios
         .get("https://api.themoviedb.org/3/search/movie", {
-          params: {
-            api_key: "f3ccf82f739dd6e779adfa5f91bae60b",
-            query: text,
-            language: "it-IT",
-          },
+          params: params,
         })
         .then((resp) => {
           this.arrayFilms = resp.data.results;
-          console.log(this.arrayFilms);
         });
-        axios
+      axios
         .get("https://api.themoviedb.org/3/search/tv", {
-          params: {
-            api_key: "f3ccf82f739dd6e779adfa5f91bae60b",
-            query: text,
-            language: "it-IT",
-          },
+          params: params,
         })
         .then((resp) => {
           this.arraySeries = resp.data.results;
-          console.log(this.arraySeries);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
