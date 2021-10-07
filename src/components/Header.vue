@@ -1,5 +1,5 @@
 <template>
-<header>
+<header :class="{classA: scrollPosition < 150, classB: scrollPosition > 150}">
   <div class="boolflix-logo">
     <img src="https://fontmeme.com/permalink/211007/4937b74c6317b36c509baa13669b4b20.png" alt="">
   </div>
@@ -18,9 +18,20 @@ export default {
   data() {
     return {
       searchInput: "",
-    };
-  },
-};
+      scrollPosition: null,
+    }},
+     methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+    }},
+    mounted() {
+    window.addEventListener('scroll', this.updateScroll);
+    },
+    destroy() {
+    window.removeEventListener('scroll', this.updateScroll)
+    },
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -60,5 +71,10 @@ export default {
       height: 35px;
     }
   }
-
+  .classA {
+    visibility: visible;
+  }
+  .classB {
+    visibility: hidden;
+  }
 </style>
