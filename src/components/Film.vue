@@ -1,6 +1,10 @@
 <template>
   <div class="film-card">
-    <div class="background-container" :style="`background-image:url(${film.poster_path ? `https://image.tmdb.org/t/p/w300${film.poster_path}` : `https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg)`}`">
+    <!-- <div class="background-container" :style="`background-image:url(${film.poster_path ? `https://image.tmdb.org/t/p/w300${film.poster_path}` : `https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg)`}`"></div> -->
+      <div class="poster-img">
+        <img v-if="film.poster_path != null" :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="">
+        <img v-else src="https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg" alt="">
+      </div>
       <div class="info-container">
         <ul>
           <li>
@@ -24,9 +28,6 @@
           </li>
         </ul>
       </div>
-    </div>
-
-    
   </div>
 </template>
 
@@ -68,26 +69,40 @@ export default {
 ul {
   list-style:none;
 }
-.background-container {
-  height: 400px;
-  width: 300px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
 
-// .background-container:hover {
-//   background-color: black;
-//   background-image: none;
-// }
-
-.info-container {
-  // visibility: hidden;
-  width: 100%;
+.poster-img {
+  border: 6px solid yellowgreen;
+  top: 0;
   height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.info-container:hover {
-  visibility: visible;
+
+.film-card {
+  border: 6px solid blue;
+  width: calc((100% / 5));
+  position: relative;
 }
+
+.film-card:hover {
+  .info-container {
+    visibility: visible;
+  }
+}
+.info-container {
+  border: 6px solid orangered;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  color: white;
+  background-color: black;
+}
+
+
+
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <Header @search="searchFilm" />
-    <Films :arrayFilms="arrayFilms" :arraySeries="arraySeries" />
+    <header>
+      <Header @search="searchFilm" />
+    </header>
+
+    <main>
+      <Films :arrayFilms="arrayFilms" :arraySeries="arraySeries" />
+    </main>
   </div>
 </template>
 
@@ -50,6 +55,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import './assets/style/common.scss'
+<style lang="scss" >
+@import './assets/style/common.scss';
+
+
 </style>
