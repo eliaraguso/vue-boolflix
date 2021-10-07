@@ -1,6 +1,7 @@
 <template>
   <ul>
-
+    
+    
     <li>Titolo: {{film.title || film.name}}</li>
 
     <li>Titolo originale: {{film.original_title || film.original_name}}</li>
@@ -9,8 +10,8 @@
     <li>Voto: {{ film.vote_average }}</li>
     <li>Voto: {{starsQuantity(vote)}}</li>
 
-    <li><img v-if="linkPoster != null" :src="'https://image.tmdb.org/t/p/w300' + linkPoster" alt=""></li>
-    <li><img v-if="linkPoster == null" src="https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg" alt=""></li>
+    <li v-if="linkPoster != null">A<img :src="'https://image.tmdb.org/t/p/w300' + linkPoster" alt=""></li>
+    <li v-else>B<img src="https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg" alt=""></li>
 
 
   </ul>
