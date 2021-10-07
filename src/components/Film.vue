@@ -1,33 +1,33 @@
 <template>
-  <ul>
+  <div class="film-card">
+    <div class="background-container" :style="`background-image:url(${film.poster_path ? `https://image.tmdb.org/t/p/w300${film.poster_path}` : `https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg)`}`">
+      <div class="info-container">
+        <ul>
+          <li>
+            <h2>Titolo: {{ film.title || film.name }}</h2>
+          </li>
+          <li>
+            <h2>
+              Titolo originale: {{ film.original_title || film.original_name }}
+            </h2>
+          </li>
+          <li>
+            <h2>
+              Lingua:<country-flag :country="film.original_language == 'en' ? 'us' : film.original_language"/>
+            </h2>
+          </li>
+          <li>
+            <div class="stars-vote">
+              <font-awesome-icon :icon="starSolid" v-for="(voto, index) in vote" :key="index"/>
+              <font-awesome-icon :icon="starEmpty" v-for="(voto, index) in 5 - vote" :key="'empty' + index"/>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-    <li><font-awesome-icon :icon="starSolid"/></li>
-    <li><font-awesome-icon :icon="starEmpty"/></li>
-
-    <li>Titolo: {{ film.title || film.name }}</li>
-
-    <li>Titolo originale: {{ film.original_title || film.original_name }}</li>
-
-    <li>
-      Lingua:<country-flag
-        :country="
-          film.original_language == 'en' ? 'us' : film.original_language
-        "
-      />
-    </li>
-    <li>Voto: {{ film.vote_average }}</li>
-    <li>Voto: {{ starsQuantity(vote) }}</li>
-
-    <li v-if="linkPoster != null">
-      A<img :src="'https://image.tmdb.org/t/p/w300' + linkPoster" alt="" />
-    </li>
-    <li v-else>
-      B<img
-        src="https://www.fiaddaemiliaromagna.org/wp-content/uploads/2020/04/lavori-in-corso.jpeg"
-        alt=""
-      />
-    </li>
-  </ul>
+    
+  </div>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
   },
 
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
 
   data() {
@@ -63,5 +63,31 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+ul {
+  list-style:none;
+}
+.background-container {
+  height: 400px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+// .background-container:hover {
+//   background-color: black;
+//   background-image: none;
+// }
+
+.info-container {
+  // visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.info-container:hover {
+  visibility: visible;
+}
 </style>

@@ -30,4 +30,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.films,
+.series {
+  display: flex;
+}
 </style>
