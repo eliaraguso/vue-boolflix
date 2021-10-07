@@ -22,6 +22,7 @@
           </li>
           <li>
             <div class="stars-vote">
+              <h1>Voto</h1>
               <font-awesome-icon :icon="starSolid" v-for="(voto, index) in vote" :key="index"/>
               <font-awesome-icon :icon="starEmpty" v-for="(voto, index) in 5 - vote" :key="'empty' + index"/>
             </div>
@@ -71,7 +72,7 @@ ul {
 }
 
 .poster-img {
-  border: 6px solid yellowgreen;
+  // border: 6px solid yellowgreen;
   top: 0;
   height: 100%;
   img {
@@ -82,8 +83,9 @@ ul {
 
 
 .film-card {
-  border: 6px solid blue;
-  width: calc((100% / 5));
+  // border: 6px solid blue;
+  margin: 10px 10px;
+  width: calc((100% / 5) - 20px);
   position: relative;
 }
 
@@ -93,7 +95,7 @@ ul {
   }
 }
 .info-container {
-  border: 6px solid orangered;
+  // border: 6px solid orangered;
   height: 100%;
   width: 100%;
   position: absolute;

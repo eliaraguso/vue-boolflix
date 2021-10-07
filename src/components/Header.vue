@@ -1,10 +1,15 @@
 <template>
-  <form action="">
-    <input type="search" v-model="searchInput" />
-    <button type="submit" @click.prevent="$emit('search', searchInput)">
+<header>
+  <div class="boolflix-logo">
+    <img src="https://fontmeme.com/permalink/211007/4937b74c6317b36c509baa13669b4b20.png" alt="">
+  </div>
+  <form class="search" action="">
+    <input id="searchBar" type="search" v-model="searchInput" />
+    <button id="searchButton" type="submit" @click.prevent="$emit('search', searchInput)">
       Cerca
     </button>
   </form>
+  </header>
 </template>
 
 <script>
@@ -19,4 +24,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #141414;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .search {
+    padding-right: 40px;
+    #searchBar {
+      background-color: #141414;
+      border: 1px solid white;
+      height: 30px;
+      margin-right: 40px;
+      border-radius: 5px;
+      color: white;
+    }
+    #searchButton {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+      padding: 7px 20px;
+      border-radius: 5px;
+    }
+  }
+
+  .boolflix-logo {
+    padding-left: 40px;
+    img {
+      height: 35px;
+    }
+  }
+
 </style>

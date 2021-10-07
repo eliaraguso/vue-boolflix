@@ -39,9 +39,11 @@ export default {
 }
 
 main {
-  border: 6px solid peru;
+  // border: 6px solid peru;
   width: 80%;
   max-width: 1920px;
   margin: auto;
+  padding-top: 80px;
+  color: white;
 }
 </style>
