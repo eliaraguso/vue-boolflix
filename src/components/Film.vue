@@ -28,6 +28,9 @@
               <font-awesome-icon :icon="starEmpty" v-for="(voto, index) in 5 - vote" :key="'empty' + index"/>
             </div>
           </li>
+          <li>
+            <h3>Overview: <span>{{film.overview}}</span></h3>
+          </li>
         </ul>
       </div>
   </div>
@@ -76,7 +79,7 @@ span {
 ul {
   list-style:none;
   li {
-    padding: 10px 0;
+    padding: 5px 0;
   }
 }
 
@@ -101,6 +104,7 @@ ul {
 .film-card:hover {
   .info-container {
     visibility: visible;
+    opacity: 90%;
   }
 }
 .info-container {
@@ -112,7 +116,7 @@ ul {
   visibility: hidden;
   color: white;
   background-color: black;
-  padding-top: 20%;
+  padding-top: 5%;
   padding-left: 5%;
 }
 
