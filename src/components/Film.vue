@@ -118,6 +118,7 @@ ul {
   background-color: black;
   padding-top: 5%;
   padding-left: 5%;
+  overflow-y: scroll;
 }
 
 .stars-vote {
@@ -143,6 +144,24 @@ h3 {
   }
 }
 
+::-webkit-scrollbar {
+    width: 4px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
 
 
 </style>
