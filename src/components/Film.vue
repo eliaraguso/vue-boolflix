@@ -8,21 +8,22 @@
       <div class="info-container">
         <ul>
           <li>
-            <h2>Titolo: {{ film.title || film.name }}</h2>
+            <h3>Titolo: <span>{{ film.title || film.name }}</span></h3>
           </li>
           <li>
-            <h2>
-              Titolo originale: {{ film.original_title || film.original_name }}
-            </h2>
+            <h3>
+              Titolo originale: <span>{{ film.original_title || film.original_name }}</span>
+            </h3>
+          </li>
+          <li id="country-box">
+            <h3>
+              Lingua:<country-flag class="country-flag" :country="film.original_language == 'en' ? 'us' : film.original_language"/>
+            </h3>
           </li>
           <li>
-            <h2>
-              Lingua:<country-flag :country="film.original_language == 'en' ? 'us' : film.original_language"/>
-            </h2>
-          </li>
-          <li>
+            
             <div class="stars-vote">
-              <h1>Voto</h1>
+              <h3>Voto:</h3>
               <font-awesome-icon :icon="starSolid" v-for="(voto, index) in vote" :key="index"/>
               <font-awesome-icon :icon="starEmpty" v-for="(voto, index) in 5 - vote" :key="'empty' + index"/>
             </div>
@@ -67,8 +68,16 @@ export default {
 
 <style lang="scss" scoped>
 
+span {
+  font-size: 14px;
+  font-weight: normal;
+}
+
 ul {
   list-style:none;
+  li {
+    padding: 10px 0;
+  }
 }
 
 .poster-img {
@@ -103,6 +112,31 @@ ul {
   visibility: hidden;
   color: white;
   background-color: black;
+  padding-top: 20%;
+  padding-left: 5%;
+}
+
+.stars-vote {
+  h3,
+  font-awesome-icon {
+  display: inline-block;
+  }
+
+  
+}
+
+h3 {
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+#country-box {
+  position: relative;
+  .country-flag {
+    position: absolute;
+    top: 0;
+
+  }
 }
 
 
