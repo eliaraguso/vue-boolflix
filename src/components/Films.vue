@@ -46,4 +46,11 @@ main {
   padding-top: 80px;
   color: white;
 }
+
+h2 {
+  padding-top: 80px;
+  padding-left: 10px;
+  font-size: 50px;
+
+}
 </style>

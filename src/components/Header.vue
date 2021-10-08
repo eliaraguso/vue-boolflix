@@ -1,5 +1,5 @@
 <template>
-<header :class="{classA: scrollPosition < 150, classB: scrollPosition > 150}">
+<header :class="{classA: scrollPosition < 100, classB: scrollPosition > 100}">
   <div class="boolflix-logo">
     <img src="https://fontmeme.com/permalink/211007/4937b74c6317b36c509baa13669b4b20.png" alt="">
   </div>
@@ -23,10 +23,12 @@ export default {
      methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY
-    }},
-    mounted() {
-    window.addEventListener('scroll', this.updateScroll);
     },
+    },
+    mounted() {
+    window.addEventListener('scroll', this.updateScroll)
+    },
+    
     destroy() {
     window.removeEventListener('scroll', this.updateScroll)
     },
